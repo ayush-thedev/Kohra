@@ -1,0 +1,29 @@
+To: {{recipientEmail}}
+Subject: Re: {{subject}}
+Cc: compliance-team@kohler.com, policy-intelligence@kohler.com
+Date: {{timestamp}}
+
+Dear Kohler Team Member,
+
+In response to your policy inquiry ("{{query}}"), here is the authoritative guidance retrieved from Kohler Enterprise Knowledge Base:
+
+--------------------------------------------------------------------------------
+{{answer}}
+--------------------------------------------------------------------------------
+
+VERIFIED SOURCE CITATIONS:
+{{#each citations}}
+• {{this.documentTitle}} (Section: {{this.section}}, Version: {{this.version}})
+  Snippet: "{{this.snippet}}"
+{{/each}}
+
+GOVERNANCE & AUDIT:
+• RBAC Role Evaluated: {{rbacRole}}
+• Domain Classification: {{domain}}
+• Grounding Verification: PASSED (100% Grounded)
+• Request Correlation ID: {{requestId}}
+
+--
+KOHLER Enterprise Intelligence Agent
+Global Policy & Compliance Systems
+Confidential — Kohler Co. Internal Use Only

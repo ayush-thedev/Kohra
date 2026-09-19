@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Palette Tokens */
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-400: #ced4da;
+    --gray-500: #adb5bd;
+    --gray-600: #6c757d;
+    --gray-700: #495057;
+
+    --primary-100: #f1f3f5;
+    --primary-700: #2b3035;
+    --primary-800: #1a1d20;
+    --primary-900: #0e1012;
+
+    /* Kohler Foundations Brand Swatch (Orange-Red / Vermilion) */
+    --brand-500: #ff4d3d;
+    --brand-600: #ea3829;
+    --brand-700: #c92a1c;
+
+    /* Semantic Alerts */
+    --alert-error: #df1f11;
+    --alert-success: #2b8a3e;
+    --alert-warning: #f59f00;
+
+    /* Typography Foundations */
+    --primary-font-family: "Space Grotesk", "Inter", -apple-system, sans-serif;
+    --font-primary: var(--primary-font-family);
+    --font-weight-heading: 300; /* Light weight heading as specified in Kohler Foundations */
+
+    /* Heading scale */
+    --font-size-h1: 100px;
+    --font-size-h2: 60px;
+    --font-size-h3: 45px;
+    --font-size-h4: 36px;
+    --font-size-h5: 32px;
+    --font-size-h6: 26px;
+
+    /* Light Theme Semantic Colors */
+    --illustration-background: var(--gray-100);
+    --surface-muted: var(--primary-100);
+    --surface-subtle: var(--gray-200);
+    --surface-low-contrast: var(--gray-300);
+    --surface-medium-contrast: var(--gray-500);
+    --surface-high-contrast: var(--primary-700);
+    --surface-brand: var(--brand-600);
+
+    --text-primary: #121416;
+    --text-secondary: #495057;
+    --text-tertiary: #868e96;
+    --border-color: var(--gray-300);
+  }
+
+  [data-theme="dark"], body, html {
+    /* Dark Theme Semantic Colors as specified in Kohler Foundations */
+    --illustration-background: var(--primary-900);
+    --surface-muted: var(--primary-800);
+    --surface-subtle: var(--primary-700);
+    --surface-low-contrast: var(--gray-500);
+    --surface-medium-contrast: var(--gray-400);
+    --surface-high-contrast: var(--gray-300);
+    --surface-brand: var(--brand-600);
+
+    --text-primary: #ffffff;
+    --text-secondary: var(--gray-300);
+    --text-tertiary: var(--gray-500);
+    --border-color: var(--primary-700);
+  }
+
+  body {
+    font-family: var(--primary-font-family);
+    background-color: var(--illustration-background);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Kohler Foundations Heading Hierarchy: Weight Light (300) */
+  h1 {
+    font-size: clamp(2.5rem, 6vw, var(--font-size-h1));
+    font-weight: var(--font-weight-heading);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 4.5vw, var(--font-size-h2));
+    font-weight: var(--font-weight-heading);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+  }
+
+  h3 {
+    font-size: clamp(1.75rem, 3.5vw, var(--font-size-h3));
+    font-weight: var(--font-weight-heading);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  h4 {
+    font-size: clamp(1.5rem, 2.5vw, var(--font-size-h4));
+    font-weight: var(--font-weight-heading);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+  }
+
+  h5 {
+    font-size: clamp(1.25rem, 2vw, var(--font-size-h5));
+    font-weight: var(--font-weight-heading);
+    line-height: 1.25;
+  }
+
+  h6 {
+    font-size: clamp(1.1rem, 1.5vw, var(--font-size-h6));
+    font-weight: var(--font-weight-heading);
+    line-height: 1.3;
+  }
+}
+
+/* Kohler Architectural Grid Background Pattern */
+.bg-kohler-grid {
+  background-color: var(--illustration-background);
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Custom Scrollbar for Kohler Interface */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-700);
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-600);
+}
+
+/* Corner Indicators in Brand-600 */
+.corner-cube-tl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background-color: var(--brand-600);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.corner-cube-tr {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 5px;
+  background-color: var(--primary-700);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.corner-cube-br {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 5px;
+  height: 5px;
+  background-color: var(--primary-700);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.corner-cube-bl {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background-color: var(--primary-700);
+  pointer-events: none;
+  z-index: 10;
+}

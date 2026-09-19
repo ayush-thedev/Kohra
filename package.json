@@ -1,0 +1,14 @@
+{
+  "name": "kohler-enterprise-agent",
+  "version": "1.0.0",
+  "private": true,
+  "description": "KOHLER Enterprise Intelligence Agent — Track 3 Submission",
+  "scripts": {
+    "install:all": "npm install --prefix backend && npm install --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "build": "npm run build --prefix backend && npm run build --prefix frontend",
+    "test:scenarios": "npm run test:scenarios --prefix backend",
+    "rebuild-index": "npm run rebuild-index --prefix backend"
+  }
+}
