@@ -153,3 +153,59 @@ Kohra/
 │   └── demo-script.md             # 1-3 minute video demonstration script
 └── package.json
 ```
+
+---
+
+## Knowledge Base Inventory: Official vs. Synthetic Policies
+
+The knowledge base consists of **30 active policy repositories** (206 total chunks). The raw source documents are organized into **Official Kohler Corporate Documents** (sourced from official corporate disclosures, D2C terms, and compliance PDFs transcribed into structured Markdown) and **Synthetic Enterprise Benchmark Documents** (designed to exercise specific governance edge cases like supersession, multi-tier RBAC containment, and conflict detection).
+
+### 🏛️ Official Kohler Corporate Policies (9 Repositories)
+
+These documents are derived directly from official Kohler Co. public legal, privacy, sustainability, and D2C terms:
+
+- **Customer Support Domain**:
+  - `official-global-terms-and-conditions.md` — *Kohler Global Terms & Conditions*
+  - `official-india-d2c-terms-of-service.md` — *Kohler India D2C User Agreement & Terms of Service*
+  - `official-india-terms-explained.md` — *Kohler India Terms & Conditions Explained*
+- **Legal & Compliance Domain**:
+  - `official-global-impact-report.md` — *Kohler Co. 2024 Global Impact Report (Believing in Better)*
+  - `official-supplier-code-of-conduct.md` — *Kohler Co. Global Supplier Code of Conduct*
+  - `official-supplier-sustainability-policy.md` — *Kohler Operations Supplier Sustainability Policy*
+- **Privacy Domain**:
+  - `official-employee-privacy-notice.md` — *Kohler Co. Global Employee Privacy Notice*
+  - `official-global-privacy-notice.md` — *Kohler Co. Global Website & Customer Privacy Policy*
+  - `official-india-website-privacy-policy.md` — *Kohler India Privacy & Data Protection Policy*
+
+---
+
+### ⚙️ Synthetic Enterprise Governance Policies (21 Repositories)
+
+These policies were constructed with explicit YAML metadata and schema variations to validate complex RAG pipeline behaviors:
+
+- **HR Domain (5 Repositories)**:
+  - `pto-policy-v3.md` — Active Paid Time Off Policy (20 days annual allowance)
+  - `pto-policy-v2.md` — Legacy Paid Time Off Policy (15 days annual allowance - *used for temporal supersession testing*)
+  - `benefits.md` — Employee Healthcare & Wellness Stipend Program
+  - `remote-work.md` — Hybrid & Remote Work Eligibility Guidelines
+  - `severance.md` — Executive Restructuring & Separation Formula (*Restricted to HR / ADMIN*)
+- **Finance Domain (4 Repositories)**:
+  - `travel-per-diem.md` — Domestic & International Per Diem Tier Schedules
+  - `approval-thresholds.md` — Financial Delegation of Authority & Approval Matrix
+  - `procurement-rules.md` — Competitive Bidding & RFP Directives
+  - `executive-entertainment.md` — Executive Hospitality Schedules (*Restricted to FINANCE / ADMIN*)
+- **Customer Support Domain (4 Repositories)**:
+  - `warranty-terms.md` — Kohler Plumbing Fixtures & Electronic Valves Limited Warranty
+  - `defect-handling.md` — Tier 1 to Tier 3 Defect Escalation & Triage Matrix
+  - `replacement-parts.md` — Genuine Kohler Replacement Part Availability Window
+  - `escalation-workflow.md` — Customer Support Incident Escalation Matrix
+- **Privacy Domain (4 Repositories)**:
+  - `cloud-data-sharing.md` — Third-Party Cloud Data Protection Agreement (DPA) Rules
+  - `data-retention.md` — Corporate Records Retention & Disposal Schedules
+  - `breach-reporting.md` — Security Incident Notification Timelines
+  - `gdpr-subject-access.md` — Data Subject Access Request (DSAR) Response Guidelines
+- **Legal & Compliance Domain (4 Repositories)**:
+  - `vendor-agreements.md` — Master Services Agreement (MSA) Indemnification Requirements
+  - `whistleblower-hotline.md` — Anonymous Ethics & Compliance Hotline Guidelines (*Restricted to LEGAL / ADMIN*)
+  - `ip-protection.md` — Design Prototype NDA & Intellectual Property Requirements
+  - `regulatory-compliance.md` — EPA WaterSense Fixture Compliance Standards
