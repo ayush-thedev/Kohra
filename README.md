@@ -9,7 +9,7 @@
 [![Groq](https://img.shields.io/badge/Groq-Llama_3.3_70B-f05032?style=for-the-badge&logoColor=white)](https://groq.com/)
 
 > **Track 3: Unified Enterprise Conversational AI Agent**  
-> **Design System:** Kohler Foundations Design System  
+> **Design System:** Kohler Bold Design System  
 > **Target Track:** Track 3 Enterprise Conversational AI Prototype
 
 ---
@@ -18,7 +18,7 @@
 
 | # | Deliverable | Description | Link |
 |:---:|---|---|---|
-| 1 | **Working Model** | Source code, configuration, instructions, and scripts required to run the Kohra Enterprise Policy Intelligence Agent. | [prototype](./) |
+| 1 | **Working Model** | Source code, configuration, instructions, and scripts required to run the Kohra Enterprise Policy Intelligence Agent. | [Prototype](./) |
 | 2 | **Video Demonstration** | Video walkthrough demonstrating the working Kohra prototype, its enterprise governance features, and RBAC containment. | [Watch Demo Video](https://drive.google.com/file/d/1VCK0BpEf7yotWk0D7KJLgMpAUZO3zIv5/view?usp=sharing) |
 | 3 | **Presentation Deck (PDF)** | Presentation covering the core approach, system architecture, technology stack, and innovation pitch. | [View Presentation Deck](./docs/pdf/deck.pdf) |
 | 4 | **Prompts Documentation (PDF)** | Comprehensive documentation containing all AI prompts, system instructions, agent workflows, and prompt engineering strategies. | [View Prompts Documentation](./docs/pdf/KOHRA_Prompts_System_Instructions_Workflows.pdf) |
