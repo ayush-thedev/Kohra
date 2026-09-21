@@ -9,7 +9,6 @@
 [![Groq](https://img.shields.io/badge/Groq-Llama_3.3_70B-f05032?style=for-the-badge&logoColor=white)](https://groq.com/)
 
 > **Track 3: Unified Enterprise Conversational AI Agent**  
-> **Design System:** Kohler Bold Design System  
 > **Target Track:** Track 3 Enterprise Conversational AI Prototype
 
 ---
@@ -27,9 +26,7 @@
 
 ## Executive Overview
 
-The **KOHRA Enterprise Intelligence Agent** is an enterprise-grade conversational AI platform designed to answer complex cross-domain policy questions across **30 enterprise policy repositories** (HR, Finance, Customer Support, Privacy, Legal & Compliance).
-
-Built with the **Kohler Foundations Design System** (brand vermilion `#ea3829` + architectural dark charcoal/slate palette, Space Grotesk headings & Inter body typography), the agent provides:
+The **KOHRA Enterprise Intelligence Agent** is an enterprise-grade conversational AI platform designed to answer complex cross-domain policy questions across **30 enterprise policy repositories** (HR, Finance, Customer Support, Privacy, Legal & Compliance). The agent provides:
 
 1. **Grounded Hybrid Retrieval**: Integrates BM25 keyword search and high-dimensional semantic vector ranking fused via **Reciprocal Rank Fusion (RRF $k=60$)**.
 2. **Strict Post-Retrieval RBAC Containment**: Evaluates 6 governance tiers (`EMPLOYEE`, `MANAGER`, `HR`, `FINANCE`, `LEGAL`, `ADMIN`), dropping unauthorized chunks before LLM synthesis and logging `droppedCount` telemetry.
@@ -44,7 +41,7 @@ Built with the **Kohler Foundations Design System** (brand vermilion `#ea3829` +
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│   React 19 Frontend (Vite + Tailwind + Kohler Foundations Design System)    │
+│   React 19 Frontend (Vite + Tailwind CSS)                                  │
 │   ├─ Conversational Stream with Format Toggle                               │
 │   ├─ 1-Click Evaluation Scenario Launcher (8 Scenarios)                     │
 │   ├─ Interactive Source Citations Drawer                                    │
@@ -86,9 +83,9 @@ Built with the **Kohler Foundations Design System** (brand vermilion `#ea3829` +
 | **3** | **RBAC Containment** | *"What are executive entertainment budgets?"* (`EMPLOYEE` vs `FINANCE`) | `EMPLOYEE` is blocked (*"Access Restricted"*, 3 docs dropped); `FINANCE` receives full budget schedule. | 🟢 **PASS** |
 | **4** | **Policy Conflict Resolution** | *"What's my leave allowance?"* (`EMPLOYEE`) | Returns **20 days PTO** under active v3.0, records `CONFLICT_DETECTED: policy supersession` replacing legacy v2.0 (15 days). | 🟢 **PASS** |
 | **5** | **Multi-Format Output** | *"List all HR policies"* (`ADMIN`) | Generates all 5 output formats: Prose, valid JSON, valid XML, binary 3-sheet Excel spreadsheet (`.xlsx`), and Handlebars Email draft. | 🟢 **PASS** |
-| **6** | **Customer Support & Warranty Terms** | *"What are Kohler's warranty and return terms for India?"* (`EMPLOYEE`) | Grounded against official Kohler India D2C Terms of Service and Global Warranty terms. | 🟢 **PASS** |
-| **7** | **RBAC Supplier Governance** | *"What is Kohler's supplier code of conduct?"* (`EMPLOYEE` vs `LEGAL`) | `EMPLOYEE` is blocked (5 docs dropped); `LEGAL`/`MANAGER` receives full supplier compliance rules. | 🟢 **PASS** |
-| **8** | **Employee Privacy Governance** | *"What data does Kohler collect under the employee privacy notice?"* (`EMPLOYEE`) | Grounded against official Employee Privacy Notice data collection guidelines. | 🟢 **PASS** |
+| **6** | **Customer Support & Warranty Terms** | *"What are the warranty and return terms for India?"* (`EMPLOYEE`) | Grounded against official India D2C Terms of Service and Global Warranty terms. | 🟢 **PASS** |
+| **7** | **RBAC Supplier Governance** | *"What is the supplier code of conduct?"* (`EMPLOYEE` vs `LEGAL`) | `EMPLOYEE` is blocked (5 docs dropped); `LEGAL`/`MANAGER` receives full supplier compliance rules. | 🟢 **PASS** |
+| **8** | **Employee Privacy Governance** | *"What data is collected under the employee privacy notice?"* (`EMPLOYEE`) | Grounded against official Employee Privacy Notice data collection guidelines. | 🟢 **PASS** |
 
 ---
 
@@ -128,7 +125,7 @@ npm run dev:frontend
 
 ## Technology Stack
 
-- **Frontend**: React 19, TypeScript, Vite, Tailwind CSS, Lucide Icons, Kohler Foundations Design System Tokens.
+- **Frontend**: React 19, TypeScript, Vite, Tailwind CSS, Lucide Icons.
 - **Backend**: Node.js, Express, TypeScript, gray-matter, Handlebars, SheetJS (`xlsx`), groq-sdk, uuid.
 - **Knowledge Base**: 30 YAML frontmatter Markdown documents, section-level chunker (max 380 words, 40 overlap).
 - **Retrieval Engine**: BM25 inverted index + Semantic vector search + Reciprocal Rank Fusion ($k=60$).
@@ -152,10 +149,10 @@ Kohra/
 │       └── test-scenarios.ts      # Automated benchmark runner (100% Pass)
 ├── frontend/
 │   ├── src/
-│   │   ├── design-system/         # Kohler Foundations button, badge, card, tabs, modal
+│   │   ├── design-system/         # Custom design system components (button, badge, card, tabs, modal)
 │   │   ├── components/            # ChatShell, MessageList, SourcePanel, AuditLogViewer, ScenarioLauncher
 │   │   ├── hooks/useChat.ts       # React state machine
-│   │   └── index.css              # Kohler Foundations design system styles
+│   │   └── index.css              # Custom design system styles
 ├── docs/
 │   ├── architecture.md            # Comprehensive architecture documentation
 │   ├── decisions.md               # Architecture Decision Records (ADRs)
@@ -169,24 +166,24 @@ Kohra/
 
 ## Knowledge Base Inventory: Official vs. Synthetic Policies
 
-The knowledge base consists of **30 active policy repositories** (206 total chunks). The raw source documents are organized into **Official Kohler Corporate Documents** (sourced from official corporate disclosures, D2C terms, and compliance PDFs transcribed into structured Markdown) and **Synthetic Enterprise Benchmark Documents** (designed to exercise specific governance edge cases like supersession, multi-tier RBAC containment, and conflict detection).
+The knowledge base consists of **30 active policy repositories** (206 total chunks). The raw source documents are organized into **Official Corporate Documents** (sourced from official corporate disclosures, D2C terms, and compliance PDFs transcribed into structured Markdown) and **Synthetic Enterprise Benchmark Documents** (designed to exercise specific governance edge cases like supersession, multi-tier RBAC containment, and conflict detection).
 
-### 🏛️ Official Kohler Corporate Policies (9 Repositories)
+### 🏛️ Official Corporate Policies (9 Repositories)
 
-These documents are derived directly from official Kohler Co. public legal, privacy, sustainability, and D2C terms:
+These documents are derived directly from official public legal, privacy, sustainability, and D2C terms:
 
 - **Customer Support Domain**:
-  - `official-global-terms-and-conditions.md` — *Kohler Global Terms & Conditions*
-  - `official-india-d2c-terms-of-service.md` — *Kohler India D2C User Agreement & Terms of Service*
-  - `official-india-terms-explained.md` — *Kohler India Terms & Conditions Explained*
+  - `official-global-terms-and-conditions.md` — *Global Terms & Conditions*
+  - `official-india-d2c-terms-of-service.md` — *India D2C User Agreement & Terms of Service*
+  - `official-india-terms-explained.md` — *India Terms & Conditions Explained*
 - **Legal & Compliance Domain**:
-  - `official-global-impact-report.md` — *Kohler Co. 2024 Global Impact Report (Believing in Better)*
-  - `official-supplier-code-of-conduct.md` — *Kohler Co. Global Supplier Code of Conduct*
-  - `official-supplier-sustainability-policy.md` — *Kohler Operations Supplier Sustainability Policy*
+  - `official-global-impact-report.md` — *2024 Global Impact Report (Believing in Better)*
+  - `official-supplier-code-of-conduct.md` — *Global Supplier Code of Conduct*
+  - `official-supplier-sustainability-policy.md` — *Operations Supplier Sustainability Policy*
 - **Privacy Domain**:
-  - `official-employee-privacy-notice.md` — *Kohler Co. Global Employee Privacy Notice*
-  - `official-global-privacy-notice.md` — *Kohler Co. Global Website & Customer Privacy Policy*
-  - `official-india-website-privacy-policy.md` — *Kohler India Privacy & Data Protection Policy*
+  - `official-employee-privacy-notice.md` — *Global Employee Privacy Notice*
+  - `official-global-privacy-notice.md` — *Global Website & Customer Privacy Policy*
+  - `official-india-website-privacy-policy.md` — *India Privacy & Data Protection Policy*
 
 ---
 
@@ -206,9 +203,9 @@ These policies were constructed with explicit YAML metadata and schema variation
   - `procurement-rules.md` — Competitive Bidding & RFP Directives
   - `executive-entertainment.md` — Executive Hospitality Schedules (*Restricted to FINANCE / ADMIN*)
 - **Customer Support Domain (4 Repositories)**:
-  - `warranty-terms.md` — Kohler Plumbing Fixtures & Electronic Valves Limited Warranty
+  - `warranty-terms.md` — Plumbing Fixtures & Electronic Valves Limited Warranty
   - `defect-handling.md` — Tier 1 to Tier 3 Defect Escalation & Triage Matrix
-  - `replacement-parts.md` — Genuine Kohler Replacement Part Availability Window
+  - `replacement-parts.md` — Genuine Replacement Part Availability Window
   - `escalation-workflow.md` — Customer Support Incident Escalation Matrix
 - **Privacy Domain (4 Repositories)**:
   - `cloud-data-sharing.md` — Third-Party Cloud Data Protection Agreement (DPA) Rules
